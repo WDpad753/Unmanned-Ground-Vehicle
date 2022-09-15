@@ -1,3 +1,4 @@
 # Unmanned-Ground-Vehicle
 
 The project is about the development of Unmanned Ground Vehicle (UGV) that is capable of navigating through complex environments. The objectives of the project were accomplished where Robot Operating Systems (ROS) packages have been employed into Nexus robot and programming microcontroller which is connected to external devices such as sensors and motor controller to be integrated with ROS. The project involves using Simultaneous Localisation And Mapping (SLAM) to map and localise the landscape and the Navigation_Stack was used to provide a target to reach, plans a path while avoiding obstacles. In addition, Nexus robot applied PD controller with the aim of controlling and regulating the amount of voltage going to the motors and reducing the positional error caused by the difference in speed of the motors.
+![IMG_0077](https://user-images.githubusercontent.com/66917039/190436580-bf7e2ece-46fd-467c-8e8f-5483d29a074e.JPG)
