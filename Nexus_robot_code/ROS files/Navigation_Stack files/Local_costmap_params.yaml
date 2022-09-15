@@ -1,0 +1,15 @@
+local_costmap:
+  global_frame: /map
+  robot_base_frame: /base_frame
+  update_frequency: 0.4
+  publish_frequency: 0.4
+  static_map: false
+  rolling_window: true
+  width: 7.0
+  height: 7.0
+  resolution: 0.1
+  transform_tolerance: 10
+
+plugins:
+- {name: static_layer,    type: "costmap_2d::StaticLayer"}
+- {name: obstalce_layer,  type: "costmap_2d::ObstacleLayer"}

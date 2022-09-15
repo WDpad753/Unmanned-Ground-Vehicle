@@ -1,0 +1,29 @@
+<launch>
+  <param name="/use_sim_time" value="true" />
+
+  <!-- start up wg world -->
+  <include file="$(find nexus_robot_2D_nav)/launch/gazebo_world.launch">
+  </include>
+  
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" >
+  </node>
+
+  <!-- start robot state publisher -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="state_publisher" output="screen" >
+  <param name="publish_frequency" type="double" value="50.0" />
+  <node name="state_publisher" pkg="nexus_robot_model" type="state_publisher" />
+  </node>
+
+  <node name="spawn_robot" pkg="gazebo" type="spawn_model" args="-urdf -param robot_description -z 0.1 -model robot_model" respawn="false" output="screen" />
+
+<!--  <node name="rviz" pkg="rviz" type="rviz" file="/home/maurice/catkin_ws/src/nexus_robot_2D_nav/launch/navigation.vcg" /> -->
+
+<!-- <node pkg="tf" type="static_transform_publisher" name="base_to_odom_broadcaster" args="0 0 0 0 0 0 /odom_frame /odom 100" /> -->
+
+  <node pkg="tf" type="static_transform_publisher" name="odom_to_laser_broadcaster" args="0 0 0 0 0 0 /base_frame /hokuyo::laser 100" /> 
+
+<!--  <node pkg="tf" type="static_transform_publisher" name="frame_to_chassis_broadcaster" args="0 0 0 0 0 0 /base_frame /chassis 100" /> -->
+
+<!--  <node pkg="tf" type="static_transform_publisher" name="map_to_frame_broadcaster" args="0 0 0 0 0 0 /map /base_frame 100" /> -->
+
+</launch>

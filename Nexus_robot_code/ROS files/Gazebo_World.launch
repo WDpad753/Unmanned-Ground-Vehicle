@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+  
+  <arg name="args" default=""/>
+  <include file="$(find nexus_robot_2D_nav)/launch/start_gazebo.launch">
+    <arg name="world" value="/home/maurice/catkin_ws/src/nexus_robot_2D_nav/Worlds/nexus_robot_lab_arena_final_6.world"/>
+    <arg name="args" default="$(arg args)"/>
+
+  </include>
+</launch>

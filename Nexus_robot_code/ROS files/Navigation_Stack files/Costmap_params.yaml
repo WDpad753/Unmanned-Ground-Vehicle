@@ -1,0 +1,38 @@
+global_costmap:
+  global_frame: /map
+  robot_base_frame: /base_frame
+
+  plugins:
+  - {name: static, type: "costmap_2d::StaticLayer"}
+  - {name: inflation, type: "costmap_2d::InflationLayer"}
+#  - {name: explore_boundary, type: "frontier_exploration::BoundedExploreLayer"}  
+
+  static:
+    unknown_cost_value: -1
+    map_topic: /map
+
+  inflation:
+    inflation_radius: 0.7
+    cost_scaling_factor: 0.2
+
+
+
+local_costmap:
+  global_frame: /map
+  robot_base_frame: /base_frame
+  robot_radius: 2.0
+
+
+  plugins:
+  - {name: static, type: "costmap_2d::StaticLayer"}
+  - {name: inflation, type: "costmap_2d::InflationLayer"}
+  - {name: obstalce_layer,  type: "costmap_2d::ObstacleLayer"}
+#  - {name: explore_boundary, type: "frontier_exploration::BoundedExploreLayer"}
+
+  static:
+    unknown_cost_value: -1
+    map_topic: /map
+
+  inflation:
+    inflation_radius: 0.4
+    cost_scaling_factor: 0.2

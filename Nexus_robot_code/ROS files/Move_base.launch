@@ -1,0 +1,16 @@
+<launch>
+<param name="/use_sim_time" value="true" />
+
+   <!-- Running Move Base -->
+   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+   <rosparam file="/home/maurice/catkin_ws/src/nexus_robot_2D_nav/launch/costmap_common_params.yaml" command="load" ns="global_costmap" />
+   <rosparam file="/home/maurice/catkin_ws/src/nexus_robot_2D_nav/launch/costmap_common_params.yaml" command="load" ns="local_costmap" />
+   <rosparam file="/home/maurice/catkin_ws/src/nexus_robot_2D_nav/launch/local_costmap_params.yaml" command="load" />
+     <rosparam file="/home/maurice/catkin_ws/src/nexus_robot_2D_nav/launch/global_costmap_params.yaml" command="load" />
+   <rosparam file="/home/maurice/catkin_ws/src/nexus_robot_2D_nav/launch/costmap_params.yaml" command="load" />
+   <rosparam file="/home/maurice/catkin_ws/src/nexus_robot_2D_nav/launch/base_local_planner_params.yaml" command="load" />
+   <param name="base_global_planner" value="navfn/NavfnROS"/>
+   <rosparam file="/home/maurice/catkin_ws/src/nexus_robot_2D_nav/launch/costmap_exploration.yaml" command="load" />
+
+  </node>
+</launch>

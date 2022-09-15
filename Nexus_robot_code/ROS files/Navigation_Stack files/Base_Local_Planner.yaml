@@ -1,0 +1,34 @@
+recovery_behavior_enabled: false
+
+TrajectoryPlannerROS:
+  max_vel_x: 0.5
+  min_vel_x: 0.1
+  max_vel_theta: 0.8
+  min_in_place_vel_theta: 0.4
+  escape_vel: -0.4
+
+  acc_lim_theta: 0.8
+  acc_lim_x: 0.8
+  acc_lim_y: 0.8
+
+  yaw_goal_tolerance: 0.1
+  xy_goal_tolerance:  0.2
+  latch_xy_goal_tolerance: false  # do not rotate on finding goal
+
+  pdist_scale: 0.5
+  gdist_scale: 0.5
+
+  occdist_scale: 2.0
+
+  publish_cost_grid_pc: true
+
+  holonomic_robot: false
+  meter_scoring: true
+
+# Global Planner Parameters
+BaseGlobalPlanner:
+  allow_unknown: false
+  use_dijkstra: false #Use A* instead, true to use Dijkstra
+  use_quadratic: true
+  use_grid_path: false
+  old_navfn_behavior: false
